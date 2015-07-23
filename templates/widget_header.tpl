@@ -1,0 +1,1 @@
+<p><?php _e( 'You are currently logged as', 'bistridesk' ) ?> <strong><?php echo $name ?></strong>, <a href="<?php echo $logout ?>"><?php _e( 'logout', 'bistridesk' ) ?></a></p>
