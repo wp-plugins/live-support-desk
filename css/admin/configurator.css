@@ -1,0 +1,132 @@
+
+#TB_window {
+    width: auto !important;
+    height: auto !important;
+}
+
+.bistri-desk-bt span {
+    display: inline-block;
+    padding-right: 5px;
+    width: 18px;
+    height: 18px;
+    vertical-align: text-top;
+    background-repeat: no-repeat;
+    background-image: url(../../images/icon_desk_bell_grey_20x14.png);
+    margin: 0 2px;
+}
+
+.builder {
+    width: 100%;
+}
+
+.builder-head {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.builder-content label {
+    margin-left: 5px;
+    padding: 0;
+    font-weight: normal;
+}
+
+.builder-content .fl {
+    float: left;
+}
+
+.builder-content .fr {
+    float: right;
+}
+
+.builder-content .cl {
+    clear: left;
+}
+
+.builder-content .cell {
+    padding: 3px 0;
+    line-height: 30px;
+}
+
+.builder-content .field {
+    width: 400px;
+}
+
+.builder-content .field select,
+.builder-content .field input[type=text] {
+    width: 250px;
+}
+
+.builder-content textarea {
+    clear: right;
+    width: 100%;
+}
+
+.builder-content .tooltip {
+    display: inline-block;
+    position: relative;
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #0074a2;
+    background-color: #2ea2cc;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.builder-content .tooltip span {
+    font-style: italic;
+}
+
+.builder-content .tooltip:hover:after {
+    background: #333;
+    background: rgba( 0, 0, 0, .8 );
+    border-radius: 3px;
+    bottom: 26px;
+    color: #fff;
+    content: attr( label );
+    text-align: left;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 98;
+    width: 300px;
+}
+
+.builder-content .tooltip.left:hover:after {
+    left: 20%;
+}
+
+.builder-content .tooltip.right:hover:after {
+    right: 20%;
+}
+
+.builder-content .tooltip:hover:before {
+    border: solid;
+    border-color: #333 transparent;
+    border-width: 6px 6px 0 6px;
+    bottom: 20px;
+    content: "";
+    position: absolute;
+    z-index: 99;
+}
+
+.builder-content .tooltip.left:hover:before {
+    left: 70%;
+}
+
+.builder-content .tooltip.right:hover:before {
+    right: 70%;
+}
+
+.builder-footer {
+    clear: both;
+    padding: 25px 0;
+    text-align: center;
+}
+
+.builder-footer input {
+    margin: 0 5px !important;
+}
