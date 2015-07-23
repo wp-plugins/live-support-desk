@@ -161,8 +161,10 @@ Unlike other solutions, WebRTC is supported in the browser itself so there’s n
 
 == Screenshots ==
 
-1. Get screenshots of set up
-2. Get screenshots of Live Support Desk in action
+1. A screenshot of your account creation
+2. Chat support
+3. Video Support - Agent view
+4. Video Support - Customer view
 
 == Changelog ==
 
