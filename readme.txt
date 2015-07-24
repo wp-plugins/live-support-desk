@@ -163,8 +163,8 @@ Unlike other solutions, WebRTC is supported in the browser itself so there’s n
 
 1. A screenshot of your account creation
 2. Chat support
-3. Video Support - Agent view
-4. Video Support - Customer view
+3. Video Support - Customer view
+4. Video Support - Agent view
 
 == Changelog ==
 
