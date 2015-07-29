@@ -1,6 +1,3 @@
-<div data-attach="visible:useQueue">
-    There are <span data-attach="node:pendingCount">0</span> pending support requests
-</div>
 <div class="bistri-container">
     <div class="bistri-videos" data-attach="onRemoteStreamAdded:insertMedia, onResize:resizeContainer"></div>
     <div class="bistri-bar">
