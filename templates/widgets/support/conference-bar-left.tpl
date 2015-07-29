@@ -1,5 +1,5 @@
 <div data-attach="visible:useQueue">
-    There are <span data-attach="node:pendingCount">0</span> pending support requests <span class="bistri-button" data-attach="click:getNextRequest">Get Next</span>
+    There are <span data-attach="node:pendingCount">0</span> pending support requests
 </div>
 <div class="bistri-container">
     <div class="bistri-bar">
@@ -10,7 +10,7 @@
                 <a type="button" class="bistri-mute-webcam bistri-button on" title="{mute-webcam}" data-attach="click:toggleWebcam, visible:isVideoShown"><span></span></a>
                 <a type="button" class="bistri-mute-sound bistri-button on" title="{mute-sound}" data-attach="click:toggleSound, visible:isControlsEnabled"><span></span></a>
                 <a type="button" class="bistri-screen-sharing bistri-button on" title="{screen-sharing}" data-attach="click:toggleScreenSharing, visible:isScreenSharingEnabled, onConferenceReady:isScreenSharingCompatible, onScreenSharingStateChange:updateButton"><span></span></a>
-            <div>
+            </div>
         </div>
         <div class="bistri-end-call">
             <span class="bistri-end-call-button" data-attach="click:endCall" title="{end-call}"></span>
