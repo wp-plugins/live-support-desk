@@ -1,7 +1,7 @@
 <?php
 
 /*
-	Plugin Name: Live Desk Support
+	Plugin Name: Live Support Desk
 	Plugin URI: https://developers.bistri.com
 	Description: Create a video conference in your posts
 	Version: 1.3
