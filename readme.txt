@@ -168,8 +168,20 @@ Unlike other solutions, WebRTC is supported in the browser itself so there’s n
 
 == Changelog ==
 
-= 0.1 =
+= 1.0 =
 * First release
+
+= 1.1 =
+* Minor enhancement
+
+= 1.2 =
+* Minor enhancement
+
+= 1.3 =
+* Fix chat window broken layout (waiting queue mode)
+
+= 1.3.1 =
+* Minor bug fixes
 
 == Upgrade Notice ==
 
