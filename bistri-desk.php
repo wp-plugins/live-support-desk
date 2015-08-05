@@ -4,7 +4,7 @@
 	Plugin Name: Live Support Desk
 	Plugin URI: http://plugins.bistri.com
 	Description: Create a video conference in your posts
-	Version: 1.3.1
+	Version: 1.3.2
 	Author: Bistri
 	Author URI: http://developers.bistri.com
 */
