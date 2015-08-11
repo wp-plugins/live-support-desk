@@ -61,6 +61,7 @@
 				if( $this->params[ 'password' ] != $this->params[ 're_password' ] )
 				{
 					$this->errors[] = '00608'; /* Passwords missmatch */
+					require_once( ABSPATH . 'wp-admin/admin-header.php' );
 					return;
 				}
 				$this->save( array(
@@ -70,6 +71,10 @@
 					'lastname'  => $this->params[ 'lastname' ],
 					'password'  => hash( 'md5', $this->params[ 'password' ] )
 				), $this->params[ 'roles' ], 'added' );
+			}
+			else
+			{
+				require_once( ABSPATH . 'wp-admin/admin-header.php' );
 			}
 		}
 
@@ -98,11 +103,16 @@
 					if( $this->params[ 'password' ] != $this->params[ 're_password' ] )
 					{
 						$this->errors[] = '00608'; /* Passwords missmatch */
+						require_once( ABSPATH . 'wp-admin/admin-header.php' );
 						return;
 					}
 					$data[ 'password' ] = hash( 'md5', $this->params[ 'password' ] );
 				}
 				$this->save( $data, $this->params[ 'roles' ], 'updated' );
+			}
+			else
+			{
+				require_once( ABSPATH . 'wp-admin/admin-header.php' );
 			}
 		}
 

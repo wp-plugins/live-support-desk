@@ -14,7 +14,7 @@
 	<?php else: ?>
 	<h2><?php _e( 'Add a new role', 'bistridesk' ) ?></h2>
 	<?php endif; ?>
-	<form method="post" action="<?php echo $form_action ?>" class="validate" novalidate>
+	<form method="post" action="<?php echo $form_action ?>&noheader=true" class="validate" novalidate>
 		<input type="hidden" name="action" value="<?php echo isset( $id ) ? "update" : "add" ?>">
 		<?php if( isset( $id ) ): ?>
 		<input type="hidden" name="id" value="<?php echo $id ?>">
