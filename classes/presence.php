@@ -42,7 +42,9 @@
 
 				$url = $this->apiPresence . get_option( "bistri_desk_plugin_id" ) . "/" . $settings[ 'api_key' ] . "/?" . $query;
 
-				foreach ( json_decode( file_get_contents( $url ) ) as $user ) {
+				$remoteUsers = $this->getRemotePresence( $url );
+
+				foreach ( $remoteUsers as $user ) {
 					if( $user->presence == 'online' ){
 						$answer[ 'users' ][] = $user->id;
 					}
@@ -53,6 +55,27 @@
 			//	$answer[ 'errors' ][] = '00401'; /* No support agent defined */
 			//}
 			return $answer;
+	    }
+
+	    public function getRemotePresence( $url )
+	    {
+			if ( function_exists( 'curl_version' ) )
+			{
+			    $curl = curl_init();
+			    curl_setopt( $curl, CURLOPT_URL, $url );
+			    curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
+			    $content = curl_exec( $curl );
+			    curl_close( $curl );
+			    return json_decode( $content );
+			}
+			else if ( file_get_contents( __FILE__ ) && ini_get( 'allow_url_fopen' ) )
+			{
+			    return json_decode( file_get_contents( $url ) );
+			}
+			else
+			{
+			    echo 'You have neither cUrl installed nor allow_url_fopen activated. Please setup one of those!';
+			}
 	    }
 	}
 ?>

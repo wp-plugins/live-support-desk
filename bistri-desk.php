@@ -1,19 +1,18 @@
 <?php
 
 /*
-	Plugin Name: Live Support Desk
-	Plugin URI: http://plugins.bistri.com
-	Description: Create a video conference in your posts
-	Version: 1.3.1
-	Author: Bistri
-	Author URI: http://developers.bistri.com
+    Plugin Name: Live Support Desk
+    Plugin URI: http://plugins.bistri.com
+    Description: Create a video conference in your posts
+    Version: 1.3.3
+    Author: Bistri
+    Author URI: http://developers.bistri.com
 */
 
 /**
  * BistriDesk plugin class
  */
 
-//require_once( plugin_dir_path( __FILE__ ) . 'debug/debug.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'resources/messages.php' );
 
 class BistriDesk {
@@ -93,6 +92,9 @@ class BistriDesk {
         add_filter( 'query_vars', array( $this, 'addQueryVars' ) );
         add_action( 'parse_request', array( $this, 'sniffRequests' ) );
         add_action( 'init', array( $this, 'addEndpoint' ) );
+
+        /* Start session earlier as possible */
+        add_action( 'init', array( $this, 'registerSession' ) );
 
         /* Load resources: JS, CSS */
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueueHTMLResources' ) );
@@ -178,6 +180,14 @@ class BistriDesk {
             {
                self::setTable( $name, $table );
             }
+        }
+    }
+
+    public function registerSession()
+    {
+        if( !session_id() )
+        {
+            session_start();
         }
     }
 
