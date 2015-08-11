@@ -4,7 +4,7 @@
     Plugin Name: Live Support Desk
     Plugin URI: http://plugins.bistri.com
     Description: Create a video conference in your posts
-    Version: 1.3.3
+    Version: 1.3.4
     Author: Bistri
     Author URI: http://developers.bistri.com
 */
@@ -123,6 +123,9 @@ class BistriDesk {
                 )
             );
             update_option( "bistri_desk_data_inserted", true );
+        }
+        if( !get_option( "bistri_desk_plugin_id" ) )
+        {
             update_option( "bistri_desk_plugin_id", uniqid() );
         }
     }
@@ -132,7 +135,6 @@ class BistriDesk {
      */     
     public static function onDesactivate()
     {
-
     }
 
     /**
@@ -141,14 +143,12 @@ class BistriDesk {
     public static function onUninstall()
     {
         global $wpdb;
-
-        if ( !defined( 'WP_UNINSTALL_PLUGIN' ) )
-        {
-            exit();
-        }
         delete_option( 'bistri_desk_settings' );
-        foreach( $this->dbTables as $key => $value ){
-            $wpdb->query( "DROP TABLE IF EXISTS { $wpdb->prefix }{ $key }" );
+        delete_option( 'bistri_desk_use_page' );
+        delete_option( 'bistri_desk_use_queue' );
+        delete_option( 'bistri_desk_data_inserted' );   
+        foreach( self::$dbTables as $key => $value ){
+            $wpdb->query( "DROP TABLE IF EXISTS $wpdb->prefix$key" );
         }
     }
 
