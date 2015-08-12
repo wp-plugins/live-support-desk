@@ -59,22 +59,36 @@
 
 	    public function getRemotePresence( $url )
 	    {
-			if ( function_exists( 'curl_version' ) )
+			if ( file_get_contents( __FILE__ ) && ini_get( 'allow_url_fopen' ) )
+			{
+				$data = json_decode( file_get_contents( $url ) );
+				if( is_null( $data ) )
+				{
+					echo 'file_get_contents error: unexpected answer from server (api.bistri.com), json expected';
+					return array();
+				}
+				return $data;
+			}
+			else if ( function_exists( 'curl_version' ) )
 			{
 			    $curl = curl_init();
 			    curl_setopt( $curl, CURLOPT_URL, $url );
 			    curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
 			    $content = curl_exec( $curl );
 			    curl_close( $curl );
-			    return json_decode( $content );
-			}
-			else if ( file_get_contents( __FILE__ ) && ini_get( 'allow_url_fopen' ) )
-			{
-			    return json_decode( file_get_contents( $url ) );
+				$data = json_decode( $content );
+
+				if( is_null( $data ) )
+				{
+					echo 'cUrl error: unexpected answer from server (api.bistri.com), json expected';
+					return array();
+				}
+				return $data;
 			}
 			else
 			{
-			    echo 'You have neither cUrl installed nor allow_url_fopen activated. Please setup one of those!';
+			    echo 'Error: you have neither cUrl installed nor allow_url_fopen activated. Please setup one of those!';
+			    return array();
 			}
 	    }
 	}

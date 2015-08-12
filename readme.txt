@@ -3,7 +3,7 @@ Contributors: bistri.com
 Tags: video chat, video, chat, text, call, audio, voice, WebRTC, chatting, support, live, solution, Bistri, desk, connect, embed, widget
 Requires at least: 3.0.1
 Tested up to: 4.0.1
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -191,6 +191,9 @@ Unlike other solutions, WebRTC is supported in the browser itself so there’s n
 
 = 1.3.4 =
 * Fix buggy uninstall process
+
+= 1.3.5 =
+* Minor bug fixes
 
 == Upgrade Notice ==
 
