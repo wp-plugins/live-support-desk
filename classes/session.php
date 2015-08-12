@@ -9,9 +9,6 @@
 
 	    public function __construct()
 	    {
-			if( session_id() == '' ){
-			    session_start();
-			}
       		$this->db = new BistriDb( 'bistri_desk_agents' );
 	    }
 

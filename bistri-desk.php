@@ -1,19 +1,18 @@
 <?php
 
 /*
-	Plugin Name: Live Support Desk
-	Plugin URI: http://plugins.bistri.com
-	Description: Create a video conference in your posts
-	Version: 1.3.1
-	Author: Bistri
-	Author URI: http://developers.bistri.com
+    Plugin Name: Live Support Desk
+    Plugin URI: http://plugins.bistri.com
+    Description: Create a video conference in your posts
+    Version: 1.3.4
+    Author: Bistri
+    Author URI: http://developers.bistri.com
 */
 
 /**
  * BistriDesk plugin class
  */
 
-//require_once( plugin_dir_path( __FILE__ ) . 'debug/debug.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'resources/messages.php' );
 
 class BistriDesk {
@@ -94,6 +93,9 @@ class BistriDesk {
         add_action( 'parse_request', array( $this, 'sniffRequests' ) );
         add_action( 'init', array( $this, 'addEndpoint' ) );
 
+        /* Start session earlier as possible */
+        add_action( 'init', array( $this, 'registerSession' ) );
+
         /* Load resources: JS, CSS */
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueueHTMLResources' ) );
 
@@ -121,6 +123,9 @@ class BistriDesk {
                 )
             );
             update_option( "bistri_desk_data_inserted", true );
+        }
+        if( !get_option( "bistri_desk_plugin_id" ) )
+        {
             update_option( "bistri_desk_plugin_id", uniqid() );
         }
     }
@@ -130,7 +135,6 @@ class BistriDesk {
      */     
     public static function onDesactivate()
     {
-
     }
 
     /**
@@ -139,14 +143,12 @@ class BistriDesk {
     public static function onUninstall()
     {
         global $wpdb;
-
-        if ( !defined( 'WP_UNINSTALL_PLUGIN' ) )
-        {
-            exit();
-        }
         delete_option( 'bistri_desk_settings' );
-        foreach( $this->dbTables as $key => $value ){
-            $wpdb->query( "DROP TABLE IF EXISTS { $wpdb->prefix }{ $key }" );
+        delete_option( 'bistri_desk_use_page' );
+        delete_option( 'bistri_desk_use_queue' );
+        delete_option( 'bistri_desk_data_inserted' );   
+        foreach( self::$dbTables as $key => $value ){
+            $wpdb->query( "DROP TABLE IF EXISTS $wpdb->prefix$key" );
         }
     }
 
@@ -178,6 +180,14 @@ class BistriDesk {
             {
                self::setTable( $name, $table );
             }
+        }
+    }
+
+    public function registerSession()
+    {
+        if( !session_id() )
+        {
+            session_start();
         }
     }
 

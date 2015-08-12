@@ -3,11 +3,11 @@ Contributors: bistri.com
 Tags: video chat, video, chat, text, call, audio, voice, WebRTC, chatting, support, live, solution, Bistri, desk, connect, embed, widget
 Requires at least: 3.0.1
 Tested up to: 4.0.1
-Stable tag: 1.3.1
+Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Live Support Desk allows you to host voice, text, and video chats in your WordPress site. Clients can connect with you and your team in one click.
+Just one click for your visitors to contact your support in real time and choose the media you prefer: voice, text or video chat. Install it for free!
 
 == Description ==
 
@@ -182,6 +182,15 @@ Unlike other solutions, WebRTC is supported in the browser itself so there’s n
 
 = 1.3.1 =
 * Minor bug fixes
+
+= 1.3.2 =
+* Minor bug fixes
+
+= 1.3.3 =
+* Stability improvement
+
+= 1.3.4 =
+* Fix buggy uninstall process
 
 == Upgrade Notice ==
 
