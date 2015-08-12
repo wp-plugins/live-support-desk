@@ -32,14 +32,15 @@
 	            'usequeue'     => $this->use_queue ? 'true' : 'false',
 	            'capacity'     => '2',
 	            'wpurl'        => $url,
-	            'debug'    => 'true'
+	            'debug'        => 'true'
 	        );
 
 			if( empty( $settings[ 'api_key' ] ) ){
-				$this->errors[] = array_map( function( $n ){
+				echo array_map( function( $n ){
 					global $BISTRI_DESK_ERROR;
 					return $BISTRI_DESK_ERROR[ $n ];
-				}, '00304' );
+				}, array( '00304' ) )[ 0 ];
+				return;
 			}
 
 	        if( isset( $options[ 'client' ] ) and $options[ 'client' ] == 'agent' )
@@ -198,8 +199,8 @@
 				$this->tpl->login  = $login;
 				$this->tpl->errors = $errors;
 				$this->tpl->action = get_permalink();
-			    $this->tpl->render( 'login.tpl' );
+				$this->tpl->render( 'login.tpl' );
 			}
-	    }
+		}
 	}
 ?>
