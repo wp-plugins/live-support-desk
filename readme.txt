@@ -35,7 +35,7 @@ Live Support Desk puts voice, text, and video chats right in your WordPress site
 
 Download the plugin right here in the WordPress Plugin Directory.
 
-You can also check out our website for more details about our plugin and plans: http://wpplugin.bistri.com/
+You can also check out our website for more details about our plugin and plans: http://plugins.bistri.com/
  
 == Installation ==
 
@@ -157,7 +157,7 @@ WebRTC is the Word Wide Web Consortium’s (W3C) open-source real time communica
 Unlike other solutions, WebRTC is supported in the browser itself so there’s no need for users to constantly update plugins, or download external applications. What’s more, you won’t need a special hosting solution to have video chats in your site. The chat window is a built-in part of your webpage. As an open-source project, WebRTC provides flexibility for developers and invites the best minds to work on this standard. The user experience for WebRTC is simple: Click on the desired communications interface and you’re connected. WebRTC is a peer-to-peer solution, so the servers hosting your website won’t be taking on a huge burden.
 
 
-**Check out our website’s FAQ page for more info:** <http://wpplugin.bistri.com/faqs/> 
+**Check out our website’s FAQ page for more info:** <http://plugins.bistri.com/faqs/> 
 
 == Screenshots ==
 
@@ -277,4 +277,4 @@ This is where you create login IDs for your agents, and roles that you will assi
 
 *NOTE: Make sure the agent ID you use for your test has the role that you assigned to the customer chat window you are testing from. If you get an unavailable message try refreshing.*
 
-**There are more How-to guides on our website:** <http://wpplugin.bistri.com/how-to-guides/>
+**There are more How-to guides on our website:** <http://plugins.bistri.com/how-to-guides/>
