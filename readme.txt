@@ -195,9 +195,7 @@ Unlike other solutions, WebRTC is supported in the browser itself so there’s n
 = 1.3.5 =
 * Minor bug fixes
 
-== Upgrade Notice ==
-
-== How-to Guides ==
+== Configuration ==
 
 Here are some resources to help you get started.
 
