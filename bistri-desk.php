@@ -6,7 +6,7 @@
     Description: Create a video conference in your posts
     Version: 1.3.5
     Author: Bistri
-    Author URI: http://developers.bistri.com
+    Author URI: http://plugins.bistri.com
 */
 
 /**
@@ -159,7 +159,7 @@ class BistriDesk {
     {
         add_options_page( 'Live Support Desk', 'Live Support Desk', 'manage_options', 'bistri_desk_settings', array( $this, 'settingsPage' ) );
 
-        add_menu_page( __( 'Live Support Desk', 'bistridesk' ), 'Live Support Desk', 'manage_options', 'bistri_desk', array( $this, 'supportPage' ), plugins_url( 'bistri-desk/images/icon_desk_bell_white_20x14.png' ) );
+        add_menu_page( __( 'Live Support Desk', 'bistridesk' ), 'Live Support Desk', 'manage_options', 'bistri_desk', array( $this, 'supportPage' ), plugins_url( 'live-support-desk/images/icon_desk_bell_white_20x14.png' ) );
 
         add_submenu_page( 'bistri_desk', __( 'Support Desk', 'bistridesk' ), __( 'Support Desk', 'bistridesk' ), 'manage_options', 'bistri_desk', array( $this, 'supportPage' ) );
 

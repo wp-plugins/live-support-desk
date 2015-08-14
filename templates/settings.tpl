@@ -1,6 +1,5 @@
 <div class="wrap">
 	<h2><?php _e('Live Support Desk Settings', 'bistridesk' ) ?></h2>
-	<p><h4><?php _e('In order to use Live Support Desk you need to create a <a href="https://api.developers.bistri.com/signup" target="_blank">developer account</a> on Bistri Developers. Once you’re logged in edit your application settings and activate your Application ID and Application Key by choosing your plan.', 'bistridesk' ) ?></h4></p>
 	<form method="POST" action="options.php" novalidate="novalidate">
         <?php settings_fields( 'bistri_desk' ); ?>
         <?php do_settings_sections( 'bistri_desk' ); ?>
@@ -14,7 +13,7 @@
 				<th scope="row"><label for="apiKey"><?php _e('API Key', 'bistridesk' ) ?></label></th>
 				<td>
 					<input type="text" id="apiKey" name="bistri_desk_settings[api_key]" value="<?php echo $api_key; ?>" class="regular-text"/>
-					<p class="description"><?php echo _e( 'Enter your API Key here. You can find it in your application details in your developer account', 'bistridesk' ); ?>. <a href="https://api.developers.bistri.com/admin/applications" target="_blank">Go to your developer account</a></p>
+					<p class="description"><?php echo _e( 'Enter your API Key here. To get your API Key go to <strong>Live Support Desk > <a href="admin.php?page=bistri_desk_manage_plan">Manage Account</a></strong>', 'bistridesk' ); ?>.
 				</td>
 			</tr>
 			<tr>
