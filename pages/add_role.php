@@ -33,6 +33,10 @@
 					'name' => $this->params[ 'name' ],
 				), 'added' );
 			}
+			else
+			{
+				require_once( ABSPATH . 'wp-admin/admin-header.php' );
+			}
 		}
 
 		public function update()
@@ -47,6 +51,10 @@
 					'name' => $this->params[ 'name' ],
 				);
 				$this->save( $data, 'updated' );
+			}
+			else
+			{
+				require_once( ABSPATH . 'wp-admin/admin-header.php' );
 			}
 		}
 

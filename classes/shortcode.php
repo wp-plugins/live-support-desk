@@ -32,14 +32,15 @@
 	            'usequeue'     => $this->use_queue ? 'true' : 'false',
 	            'capacity'     => '2',
 	            'wpurl'        => $url,
-	            'debug'    => 'true'
+	            'debug'        => 'true'
 	        );
 
 			if( empty( $settings[ 'api_key' ] ) ){
-				$this->errors[] = array_map( function( $n ){
+				echo array_map( function( $n ){
 					global $BISTRI_DESK_ERROR;
 					return $BISTRI_DESK_ERROR[ $n ];
-				}, '00304' );
+				}, array( '00304' ) )[ 0 ];
+				return;
 			}
 
 	        if( isset( $options[ 'client' ] ) and $options[ 'client' ] == 'agent' )
@@ -60,7 +61,7 @@
 	    	$page_id    = get_option( 'bistri_desk_use_page', 0 );
 			$adminHash  = hash( 'md5', get_option( 'admin_email' ) );
 			$presence   = new Presence();
-	        $connected = $presence->getConnected();
+	        $connected  = $presence->getConnected();
 	        $filtered   = array();
 
 	        if( in_array( $adminHash, $connected[ 'users' ] ) )
@@ -113,6 +114,7 @@
 			        $this->tpl->layout = array_key_exists( 'layout', $options ) ? $this->tpl->render( 'widgets/customer/' . $options[ 'layout' ] . '.tpl', true ) : '';
 			        $this->tpl->widget = 'widget.desk.customer';
 			        $this->tpl->params = json_encode( $options );
+			        $this->tpl->errors = array();
 			        $this->tpl->render( 'widget.tpl' );
 	        	}
 	        	else
@@ -190,14 +192,15 @@
 				$this->tpl->layout = $this->tpl->render( 'widgets/support/' . ( array_key_exists( 'layout', $options ) ? $options[ 'layout' ] : 'conference-bar-right' ) . '.tpl', true );
 				$this->tpl->widget = 'widget.desk.support';
 				$this->tpl->params = json_encode( $options );
+				$this->tpl->errors = $errors;
 				$this->tpl->render( 'widget.tpl' );
 			}
 			else{
 				$this->tpl->login  = $login;
 				$this->tpl->errors = $errors;
 				$this->tpl->action = get_permalink();
-			    $this->tpl->render( 'login.tpl' );
+				$this->tpl->render( 'login.tpl' );
 			}
-	    }
+		}
 	}
 ?>
