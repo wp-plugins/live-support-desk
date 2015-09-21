@@ -3,101 +3,107 @@ Contributors: bistri.com
 Tags: video chat, video, chat, text, call, audio, voice, WebRTC, chatting, support, live, solution, Bistri, desk, connect, embed, widget
 Requires at least: 3.0.1
 Tested up to: 4.0.1
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Just one click for your visitors to contact your support in real time and choose the media you prefer: voice, text or video chat. Install it for free!
+Just one click from your own website to contact your support in real time by the media you prefer : chat, voice and/or video. Install it for free!
 
 == Description ==
 
-Live Support Desk puts voice, text, and video chats right in your WordPress site. It’s quick and easy to set up and use. Our plugin is designed to work whether you are on your own or have a team of agents. This is the live support solution for everybody. 
+Live Support Desk puts voice, text, and video chats right in your WordPress site. Designed to work whether you are on your own or have a support team of agents. Quick and easy to install.
 
-*   Our intuitive configuration menu lets you quickly insert live chat windows right into the your site. You just select your preferences and the short code is generated for you. 
+*   Easy to install : our intuitive configuration menu lets you quickly insert live chat windows right into the your site. Just select your preferences and the short code is generated for you. 
 
-*   When people visit your site they’ll see clickable chat windows right in the pages you choose. One click and they’re connected to someone who is ready to help them out. This all happens without a visitor ever needing to download an external application or leave your site. 
+*   Simple for your visitors : when people visit your site they’ll see clickable chat windows right in the pages you choose. One click and they’re connected to someone who is ready to help them out. This all happens without a visitor ever needing to download an external application or leave your site. 
 
-*   You can control every aspect of the chat. Choose between video and voice chats, or even text only chats. You can also choose to enable or disable text chatting as part of your voice or video chats. The plugin also allows you to use different chat styles in different pages. 
+*   Control every aspect of the chat : Different chat styles can be selected between text only or video and voice chats. Choose to enable or disable text chatting as part of your voice or video chats. Use different chat styles in different pages. In addition, choose whether or not to give your visitors and agents control of their media functions, such as cutting their web cam or audio feed with just the click of a button.  
 
-*   Our clean, neutral interface looks natural in the page. Customize everything from the size of the display to the features that appear in the window. 
+*   White brand : our clean, neutral interface looks natural in the page. Customize everything from the size of the display to the features that appear in the window. 
 
-*   Add agent logins and define their roles. Specify which chat windows are designated to which roles and streamline requests to the right agents.  
+*   Adapted to your organisation : Add agent logins and define their roles and streamline requests to the right agents. Set up an agent chat window to receive any chat requests they are assigned to handle. So no need to give employees access to your WordPress Dashboard.
 
-*   Set up an agent chat window so that you don’t even have to give employees access to your WordPress Dashboard. An agent only has to log into one page to receive any chat requests they are assigned to handle. 
+*   Adapted to your process : Use a waiting queue that lets clients know their place in line or use a regular Accept/Ignore request management style that notifies you when somebody wants to chat. Possibility to display a custom page in place of the chat window when nobody is on line.
 
-*   Choose whether or not to give your visitors and agents control of their media functions, such as cutting their web cam or audio feed with just the click of a button. 
-
-*   You can use a waiting queue that lets clients know their place in line. For smaller businesses you can even use a regular Accept/Ignore request management style that notifies you when somebody wants to chat. 
-
-*   When nobody is online you can choose to display a custom page in place of the chat window.
-
-*   This plugin provides you with the tools you need for providing personal, quick, and easy support.
-
-Download the plugin right here in the WordPress Plugin Directory.
-
-You can also check out our website for more details about our plugin and plans: http://plugins.bistri.com/
+For more details, check out our website http://plugins.bistri.com/
  
 == Installation ==
 
-This is how to set up the Live Support Desk plugin right from WordPress.
+= From your WordPress Dashboard =
 
+*   Click "Install Now" on the plugin page.
 
-= Installing from your WordPress Dashboard =
-
-*   Click Install Now on the plugin page.
-
-*   Once you’ve installed Live Support Desk, find it in your installed plugins tab and click Activate.
+*   From installed plugins tab, click "Activate".
 
 = From WordPress.org =
 
-*   Download Live Support Desk from the WordPress Plugin Directory.
+*   Download Live Support Desk plugin.
 
-*   Go to your dashboard and click Add New in the plugins tab.
+*   From your dashboard, click "Add New" in the plugins tab.
 
-*   Click Upload Plugin and select the Live Support Desk .zip from your downloaded files.
+*   Click "Upload Plugin" > select the Live Support Desk .zip from your downloaded files.
 
-*   Click Install Now.
+*   Click "Install Now" and once installed, click "Activate".
 
-*   Once installed, click Activate to get started.
 
-= Configuration From WordPress Dashboard =
+= Quick Start =
 
-= Account Creation =
+*   Go to "Live Support Desk" > "Manage Account" > "Signup" and create your account. 
 
-*   Hover over the Live Support Desk tab in your WordPress Dashboard.
+*   Don't forget to confirmed your account creation !
 
-*   Click on Manage Account.
+*   Go to  "Manage Account" > "Create Application".
 
-*   Enter the necessary information to create your account and submit.
+*   Once the application has been created, copy the API Key.
 
-*   You'll be prompted to create an application. Enter the applicable information and create the application. The referrer is the domain that you’d like to use the plugin on.
+*   Go to "Settings" > "Live Support Desk" and paste the API Key in the appropriate field.
 
-= You’ll be given an API Key when you create the application. =
+*   Don't forget to save the settings !
 
-*   Copy the API Key to paste in your settings page.
+*   Now you must create the "Support" page, this is the page that will be used by the customers to require assistance:
 
-= Settings =
+    *   create a new page and click on the button with the label "Live Support Desk" above the text editor.
 
-*   Once you've set up your account and application, hover over the settings tab in your Dashboard and select Live Support Desk.
+    *   in the popup, set the field "type" to "customer", then click on "insert" and finally save the page.
 
-*   Paste the API Key from the previous page where it says API Key. This enables us to connect and secure chat requests that go through your site. 
+*   Then, you must create the "Agent" page, this is the page that will be used by agents to manage/answer support requests.
 
-*   After you’ve entered your key in the designated space on the settings page you can begin to configure the rest of the settings.
+    *   declare an agent (the person who had the ability to answer to support requests): go to "Live Support Desk" > "Add agent" and create a new agent.
 
-= Request Management Settings =
+    *   create a new page and click on the button with the label "Live Support Desk" above the text editor.
 
-*   Unavailable Message: Choose what you’d like to display when there is nobody available for a chat. Essentially, the option you select will be what appears instead of the chat window if you or an agent isn’t online.
+    *   in the popup, set the field "type" to "agent", then click on "insert" and finally save the page.
+
+*   Now it’s set up and ready to go !
+
+= Advanced Settings =
+
+*   Go to "Live Support Desk" > "Settings" and configure the following options:
+
+    *   Unavailable Message: Choose the page what you’d like to display when there is no agent online.
+
+    *   Request Management Style, this decides how incoming support requests are handled by your agents:
+
+        *   waiting Queue: put requests in a first come, first served queue. Agents will just click on a prompt to connect to the next request.
+
+        *   direct Connect: when requests come in, agents will have the opportunity to Accept/Ignore the request.
+
+    *   Screen Sharing: No mandatory to start. For more information on how to set up screen sharing, check out the How-to on that subject in our website.
+
+*   Save changes.
+
+== Frequently Asked Questions ==
+
+= CAN I HAVE SOME EXPLANATIONS ABOUT SETTINGS ? =
+
+*   Unavailable Message: Choose the option what you’d like to display when there is no agent online.
 
 *   Request Management Style: This decides how incoming chat requests are handled by your agents.
 
-*Select Waiting Queue to use a style that will put requests in a first come, first served queue. Agents will just click on a prompt to connect to the next request. Select Direct Connect to use a style that's more like a traditional call. When requests come in, agents will have the opportunity to Accept/Ignore the request.*
+*   Waiting Queue : put requests in a first come, first served queue. Agents will just click on a prompt to connect to the next request. Direct Connect : when requests come in, agents will have the opportunity to Accept/Ignore the request.*
 
-*   Screen Sharing: You don’t have to do this to start using Live Support Desk. If you’d like information on how to set up screen sharing, check out the How-to on that subject in our website.
+*   Screen Sharing: No mandatory to start. For more information on how to set up screen sharing, check out the How-to on that subject in our website.
 
-*   Once you click save changes you can start using Live Support Desk right away. It is set up and ready to go.
-
-
-== Frequently Asked Questions ==
 
 = WHERE DO I FIND MY API KEY? =
 
@@ -105,7 +111,7 @@ This is how to set up the Live Support Desk plugin right from WordPress.
 
 *   Just go to manage account in the Live Support Desk tab on your Dashboard and click on your application. You’ll see your API Key there.
 
-*If you haven’t set up your developer account or your application, you can see how to do this by reading the instructions on the installation page, or in the how-to guides on our website.*
+*   If you haven’t set up your developer account or your application, you can see how to do this by reading the instructions on the installation page, or in the how-to guides on our website.*
 
 = DOES THE BASIC PLAN INCLUDE ALL THE FEATURES? =
 
@@ -149,14 +155,6 @@ There’s no problem with having a lot of clients and getting a lot of requests.
 
 This is an incoming request solution. If people want to get in touch with you they will now be able to contact you right in your site. You’ll still have to reach out to people by going towards them.
 
-
-= WHAT IS WEBRTC? =
-
-WebRTC is the Word Wide Web Consortium’s (W3C) open-source real time communications standard. It enables in-browser real time communications between anyone connected to the internet. WebRTC aims to eliminate the need for external applications and browser plugins, bringing real time communications right into the browser.
-
-Unlike other solutions, WebRTC is supported in the browser itself so there’s no need for users to constantly update plugins, or download external applications. What’s more, you won’t need a special hosting solution to have video chats in your site. The chat window is a built-in part of your webpage. As an open-source project, WebRTC provides flexibility for developers and invites the best minds to work on this standard. The user experience for WebRTC is simple: Click on the desired communications interface and you’re connected. WebRTC is a peer-to-peer solution, so the servers hosting your website won’t be taking on a huge burden.
-
-
 **Check out our website’s FAQ page for more info:** <http://plugins.bistri.com/faqs/> 
 
 == Screenshots ==
@@ -195,7 +193,10 @@ Unlike other solutions, WebRTC is supported in the browser itself so there’s n
 = 1.3.5 =
 * Minor bug fixes
 
-== Configuration ==
+= 1.3.6 =
+* Minor bug fixes
+
+== How-to Guides ==
 
 Here are some resources to help you get started.
 

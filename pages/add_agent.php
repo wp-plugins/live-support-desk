@@ -20,13 +20,11 @@
 
 		public function init()
 		{
-			wp_enqueue_script('user-profile');
 			$this->loadRoles();
 		}
 
 		public function edit()
 		{
-			wp_enqueue_script('user-profile');
 		    $user = $this->db->find( array( 'id' => $this->params[ 'id' ] ) );
 		    if( $user ){
 		    	foreach( $user as $key => $value )

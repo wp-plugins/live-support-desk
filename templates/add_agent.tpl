@@ -63,8 +63,6 @@
                 	</th>
                		<td>
 	                	<input name="re_password" type="password" id="pass2" autocomplete="off" />
-	                	<br />
-	                	<div id="pass-strength-result"><?php _e( 'Strength indicator', 'bistridesk' ); ?></div>
                 	</td>
         		</tr>
 				<tr class="form-field form-required">
