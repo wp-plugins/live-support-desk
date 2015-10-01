@@ -168,17 +168,17 @@ class BistriDesk {
     {
         add_options_page( 'Live Support Desk', 'Live Support Desk', 'manage_options', 'bistri_desk_settings', array( $this, 'settingsPage' ) );
 
-        add_menu_page( __( 'Live Support Desk', 'bistridesk' ), 'Live Support Desk', 'manage_options', 'bistri_desk', array( $this, 'supportPage' ), plugins_url( 'live-support-desk/images/icon_desk_bell_white_20x14.png' ) );
+        add_menu_page( __( 'Live Support Desk', 'bistridesk' ), 'Live Support Desk', 'manage_options', 'bistri_desk_agents', array( $this, 'listAgentsPage' ), plugins_url( 'live-support-desk/images/icon_desk_bell_white_20x14.png' ) );
 
-        add_submenu_page( 'bistri_desk', __( 'Support Desk', 'bistridesk' ), __( 'Support Desk', 'bistridesk' ), 'manage_options', 'bistri_desk', array( $this, 'supportPage' ) );
+        //add_submenu_page( 'bistri_desk', __( 'Support Desk', 'bistridesk' ), __( 'Support Desk', 'bistridesk' ), 'manage_options', 'bistri_desk', array( $this, 'supportPage' ) );
 
-        add_submenu_page( 'bistri_desk', __( 'Manage Agents', 'bistridesk' ), __( 'Manage Agents', 'bistridesk' ), 'manage_options', 'bistri_desk_agents', array( $this, 'listAgentsPage' ) );
-        add_submenu_page( 'bistri_desk', __( 'Add Agent', 'bistridesk' ), __( 'Add Agent', 'bistridesk' ), 'manage_options', 'bistri_desk_agent_add', array( $this, 'addAgentPage' ) );
+        add_submenu_page( 'bistri_desk_agents', __( 'Manage Agents', 'bistridesk' ), __( 'Manage Agents', 'bistridesk' ), 'manage_options', 'bistri_desk_agents', array( $this, 'listAgentsPage' ) );
+        add_submenu_page( 'bistri_desk_agents', __( 'Add Agent', 'bistridesk' ), __( 'Add Agent', 'bistridesk' ), 'manage_options', 'bistri_desk_agent_add', array( $this, 'addAgentPage' ) );
 
-        add_submenu_page( 'bistri_desk', __( 'Manage Roles', 'bistridesk' ), __( 'Manage Roles', 'bistridesk' ), 'manage_options', 'bistri_desk_roles', array( $this, 'listRolesPage' ) );
-        add_submenu_page( 'bistri_desk', __( 'Add Role', 'bistridesk' ), __( 'Add Role', 'bistridesk' ), 'manage_options', 'bistri_desk_role_add', array( $this, 'addRolePage' ) );
+        add_submenu_page( 'bistri_desk_agents', __( 'Manage Roles', 'bistridesk' ), __( 'Manage Roles', 'bistridesk' ), 'manage_options', 'bistri_desk_roles', array( $this, 'listRolesPage' ) );
+        add_submenu_page( 'bistri_desk_agents', __( 'Add Role', 'bistridesk' ), __( 'Add Role', 'bistridesk' ), 'manage_options', 'bistri_desk_role_add', array( $this, 'addRolePage' ) );
 
-        add_submenu_page( 'bistri_desk', __( 'Manage Account', 'bistridesk' ), __( 'Manage Account', 'bistridesk' ), 'manage_options', 'bistri_desk_manage_plan', array( $this, 'managePlanPage' ) );
+        add_submenu_page( 'bistri_desk_agents', __( 'Manage Account', 'bistridesk' ), __( 'Manage Account', 'bistridesk' ), 'manage_options', 'bistri_desk_manage_plan', array( $this, 'managePlanPage' ) );
     }
 
     public function updateDbCheck()
