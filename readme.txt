@@ -1,6 +1,6 @@
 === Live Support Desk ===
 Contributors: bistri.com
-Tags: video chat, video, chat, text, call, audio, voice, WebRTC, chatting, support, live, solution, Bistri, desk, connect, embed, widget
+Tags: video chat, video, chat, text, call, audio, voice, WebRTC, chatting, support, live, solution, Bistri, desk, connect, widget, chatonline, chat on line, chat live, click to text, click to call, click to video, clickdesk, customer support, helpdesk, live chat, live support, live web chat, online support, online videochat, online chat, plugin chat, support desk, web chat, wordpress live chat, wordpress video chat
 Requires at least: 3.0.1
 Tested up to: 4.0.1
 Stable tag: 1.3.6
