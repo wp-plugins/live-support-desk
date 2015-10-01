@@ -2,12 +2,13 @@
 
 	require_once( plugin_dir_path( __FILE__ ) . '../classes/page.php' );
 	require_once( plugin_dir_path( __FILE__ ) . '../classes/agents_roles.php' );
+	require_once( plugin_dir_path( __FILE__ ) . '../classes/api_services.php' );
 
 	class BistriAgents extends Page {
 
-		public $template = 'agents_list.tpl';
-		public $table    = 'bistri_desk_agents';
-		public $data     = array(
+		public $template    = 'agents_list.tpl';
+		public $table       = 'bistri_desk_agents';
+		public $data        = array(
 			'agents'        => array(),
 			'add_agent_url' => null
 		);
@@ -54,24 +55,35 @@
 
 		public function processDelete( $ids, $isPlural = false )
 		{
-			if( $this->db->delete( $ids[ 0 ] ) )
+			$apiServices = new BistriApiServices();
+			$user = $this->db->find( array( 'id' => $ids[ 0 ] ) );
+			$unregisterAgent = $apiServices->unregisterAgent( $user[ 'uid' ] );
+
+			if( $unregisterAgent )
 			{
-				$agentsRoles = new AgentsRoles();
-				if( gettype( $agentsRoles->deleteByAgent( $ids[ 0 ] ) ) === 'integer' )
+				if( $this->db->delete( $ids[ 0 ] ) )
 				{
-					array_splice( $ids, 0, 1 );
-					if( count( $ids ) ){
-						$this->processDelete( $ids, true );
+					$agentsRoles = new AgentsRoles();
+					if( gettype( $agentsRoles->deleteByAgent( $ids[ 0 ] ) ) === 'integer' )
+					{
+						array_splice( $ids, 0, 1 );
+						if( count( $ids ) ){
+							$this->processDelete( $ids, true );
+						}
+						else{
+							$this->messages[] = $isPlural ? '10603' /* Users have been successfully deleted */ : '10604' /* User has been successfully deleted */;
+							$this->loadAgents();
+						}
 					}
-					else{
-						$this->messages[] = $isPlural ? '10603' /* Users have been successfully deleted */ : '10604' /* User has been successfully deleted */;
-						$this->loadAgents();
+					else
+					{
+						$this->errors[] = '00611'; /* Fail to remove associated roles */
 					}
 				}
-				else
-				{
-					$this->errors[] = '00611'; /* Fail to remove associated roles */
-				}
+			}
+			else
+			{
+				$this->errors[] = '00612'; /* Bistri Api unreachable */
 			}
 		}
 

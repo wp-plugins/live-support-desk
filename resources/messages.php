@@ -47,6 +47,7 @@
 		'00609' => __( 'No agent selected', 'bistridesk' ),
 		'00610' => __( 'No role selected', 'bistridesk' ),
 		'00611' => __( 'Fail to remove associated roles', 'bistridesk' ),
+		'00612' => __( 'Bistri Api unreachable, please retry later', 'bistridesk' ),
 
 		/* Role related errors */
 		'00701' => __( 'Name is missing', 'bistridesk' ),

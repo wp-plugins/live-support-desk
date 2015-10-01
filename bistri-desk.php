@@ -4,7 +4,7 @@
     Plugin Name: Live Support Desk
     Plugin URI: http://plugins.bistri.com
     Description: Create a video conference in your posts
-    Version: 1.3.6
+    Version: 1.4
     Author: Bistri
     Author URI: http://plugins.bistri.com
 */
@@ -14,6 +14,7 @@
  */
 
 require_once( plugin_dir_path( __FILE__ ) . 'resources/messages.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'classes/api_services.php' );
 
 class BistriDesk {
 
@@ -83,6 +84,7 @@ class BistriDesk {
         add_action( 'admin_init', array( $this, 'addSettings' ) );
         add_action( 'admin_menu', array( $this, 'addMenus' ) );
         add_action( 'plugins_loaded', array( $this, 'updateDbCheck' ) );
+        add_action( 'plugins_loaded', array( $this, 'registerAgents' ) );
 
         /* Post/Page Edit  */
         add_action( 'media_buttons_context', array( $this, 'addEditorButton' ) );
@@ -124,7 +126,7 @@ class BistriDesk {
             );
             update_option( "bistri_desk_data_inserted", true );
         }
-        if( !get_option( "bistri_desk_plugin_id" ) )
+        if( !get_option( "bistri_desk_plugin_id", false ) )
         {
             update_option( "bistri_desk_plugin_id", uniqid() );
         }
@@ -143,10 +145,17 @@ class BistriDesk {
     public static function onUninstall()
     {
         global $wpdb;
+        $settings = get_option( 'bistri_desk_settings', array(
+            'api_key' => '',
+            'chrome_extension_id' => '',
+            'firefox_extension_id' => ''
+        ) );
+        $apiServices = new BistriApiServices();
+        $apiServices->unregisterAllAgents( $settings[ 'api_key' ] );
         delete_option( 'bistri_desk_settings' );
         delete_option( 'bistri_desk_use_page' );
         delete_option( 'bistri_desk_use_queue' );
-        delete_option( 'bistri_desk_data_inserted' );   
+        delete_option( 'bistri_desk_data_inserted' );
         foreach( self::$dbTables as $key => $value ){
             $wpdb->query( "DROP TABLE IF EXISTS $wpdb->prefix$key" );
         }
@@ -180,6 +189,16 @@ class BistriDesk {
             {
                self::setTable( $name, $table );
             }
+        }
+    }
+
+    public function registerAgents()
+    {
+        if( !get_option( "bistri_desk_register_agent", false ) )
+        {
+            $apiServices = new BistriApiServices();
+            $apiServices->registerAllAgents();
+            update_option( "bistri_desk_register_agent", true );
         }
     }
 
@@ -389,14 +408,13 @@ class BistriDesk {
             if( isset( $input[ $key ] ) )
             {
                 $value = preg_replace( '/\s+/', '', $value );
-                //if ( $key == 'api_key' and strlen( $value ) != 32 )
-                //{
-                //    add_settings_error( 'bistri_desk', 'invalid-value', $BISTRI_DESK_ERROR[ '00302' ] ); /* You have entered an invalid api key. */
-                //}
-                //else
-                //{
-                    $output[ $key ] = $value;
-                //}
+                if( $key == 'api_key' and $input[ $key ] != $output[ $key ] )
+                {
+                    $apiServices = new BistriApiServices();
+                    $apiServices->unregisterAllAgents( $output[ $key ] );
+                    $apiServices->registerAllAgents( $input[ $key ] );
+                }
+                $output[ $key ] = $value;
             }
         }
         return $output;

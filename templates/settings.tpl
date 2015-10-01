@@ -6,7 +6,7 @@
 		<table class="form-table">
 			<tr>
 				<th colspan="2">
-					<h3><?php _e('Account Keys' ) ?></h3>
+					<h3><?php _e('Main' ) ?></h3>
 				</th>
 			</tr>
 			<tr>

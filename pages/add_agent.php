@@ -3,12 +3,13 @@
 	require_once( plugin_dir_path( __FILE__ ) . '../classes/page.php' );
 	require_once( plugin_dir_path( __FILE__ ) . '../classes/role.php' );
 	require_once( plugin_dir_path( __FILE__ ) . '../classes/agents_roles.php' );
+	require_once( plugin_dir_path( __FILE__ ) . '../classes/api_services.php' );
 
 	class BistriAddAgent extends Page {
 
-		public $template = 'add_agent.tpl';
-		public $table    = 'bistri_desk_agents';
-		public $data     = array(
+		public $template    = 'add_agent.tpl';
+		public $table       = 'bistri_desk_agents';
+		public $data        = array(
 			'id'        => null,
 			'uid'       => null,
 			'login'     => null,
@@ -62,6 +63,7 @@
 					require_once( ABSPATH . 'wp-admin/admin-header.php' );
 					return;
 				}
+
 				$this->save( array(
 					'login'     => $this->params[ 'login' ],
 					'uid'       => hash( 'md5', time() ),
@@ -116,22 +118,32 @@
 
 		public function save( $fields = array(), $roles = array(), $action )
 		{
-			if( $newid = $this->db->save(
-					$fields,
-					isset( $fields[ 'id' ] ) ? 
-						array( 'id' => $fields[ 'id' ] ) : null
-				)
-			)
+			$apiServices = new BistriApiServices();
+			$registerAgent = $apiServices->registerAgent( $fields[ 'uid' ] );
+
+			if( $registerAgent )
 			{
-				$agentsRoles = new AgentsRoles();
-				if( $agentsRoles->save( $roles, isset( $fields[ 'id' ] ) ?  $fields[ 'id' ] : $newid, $fields[ 'uid' ] ) )
+				if( $newid = $this->db->save(
+						$fields,
+						isset( $fields[ 'id' ] ) ? 
+							array( 'id' => $fields[ 'id' ] ) : null
+					)
+				)
 				{
-					wp_safe_redirect( add_query_arg( array( 
-						'page' => 'bistri_desk_agents',
-						'action' => $action
-					), admin_url( 'admin.php' ) ) );
-					exit;
+					$agentsRoles = new AgentsRoles();
+					if( $agentsRoles->save( $roles, isset( $fields[ 'id' ] ) ?  $fields[ 'id' ] : $newid, $fields[ 'uid' ] ) )
+					{
+						wp_safe_redirect( add_query_arg( array( 
+							'page' => 'bistri_desk_agents',
+							'action' => $action
+						), admin_url( 'admin.php' ) ) );
+						exit;
+					}
 				}
+			}
+			else
+			{
+				$this->errors[] = '00612'; /* Bistri Api unreachable */
 			}
 		}
 	}
